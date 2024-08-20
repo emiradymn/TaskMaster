@@ -1,0 +1,8 @@
+@model TaskMaster.Data.Task
+
+<form asp-controller="Home" asp-action="TaskDelete" method="post">
+    <input type="hidden" name="id" value="@Model.TaskId">
+    <p><b>@Model.Title</b> adlı görevi silmek istiyor musnuz? </p>
+    <button type="submit" class="btn btn-danger">Evet</button>
+    <a asp-controller="Home" asp-action="TaskList" class="btn btn-primary">Hayır</a>
+</form>

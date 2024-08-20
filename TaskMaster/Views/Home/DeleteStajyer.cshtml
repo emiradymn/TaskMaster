@@ -1,0 +1,9 @@
+@model Stajyer
+
+
+<form asp-controller="Home" asp-action="DeleteStajyer" method="post">
+    <input type="hidden" name="id" value="@Model.StajyerId"> <!--asp-for="@Model.StajyerId" da olur-->
+    <p><b>@Model.StajyerName @Model.StajyerUsername</b> isimli stajyeri silmek istiyor musnuz? </p>
+    <button type="submit" class="btn btn-danger">Evet</button>
+    <a asp-controller="Home" asp-action="StajyerList" class="btn btn-primary">Hayır</a>
+</form>

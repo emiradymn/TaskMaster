@@ -1,0 +1,34 @@
+@model IEnumerable<Engineer>
+
+    <h2>Mühendis Listesi</h2>
+    <a asp-controller="Home" asp-action="EngineerCreate" class="btn btn-sm btn-primary">Mühendis Ekle</a>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m=>m.EngineerId)</th>
+                <!--isimleri almak için ve daha verimli olması için displaynamefor kullanıyoruz.-->
+                <th>@Html.DisplayNameFor(m=>m.EngineerName)</th>
+                <th>@Html.DisplayNameFor(m=>m.EngineerUsername)</th>
+                <th>@Html.DisplayNameFor(m=> m.JobDateTime)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.EngineerId)</td>
+                <td>@Html.DisplayFor(modelItem => item.EngineerName)</td>
+                <td>@Html.DisplayFor(modelItem => item.EngineerUsername)</td>
+                <td>@Html.DisplayFor(modelItem => item.JobDateTime)</td>
+                <td>
+                    <a asp-controller="Home" asp-action="EditEngineer" asp-route-id="@item.EngineerId"
+                        class="btn btn-sm btn-primary">Düzenle</a>
+                    <a asp-controller="Home" asp-action="DeleteEngineer" asp-route-id="@item.EngineerId"
+                        class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

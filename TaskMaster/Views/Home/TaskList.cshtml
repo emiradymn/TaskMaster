@@ -1,0 +1,32 @@
+@model IEnumerable<TaskMaster.Data.Task>
+
+    <h2>Görev Listesi</h2>
+    <a asp-controller="Home" asp-action="TaskCreate" class="btn btn-sm btn-primary">Görev Ekle</a>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m=>m.TaskId)</th>
+                <!--isimleri almak için ve daha verimli olması için displaynamefor kullanıyoruz.-->
+                <th>@Html.DisplayNameFor(m=>m.Title)</th>
+                <th>@Html.DisplayNameFor(m => m.Engineer.NameUsername)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TaskId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Engineer.EngineerName)</td>
+                <td>
+                    <a asp-controller="Home" asp-action="TaskEdit" asp-route-id="@item.TaskId"
+                        class="btn btn-sm btn-primary">Düzenle</a>
+                    <a asp-controller="Home" asp-action="TaskDelete" asp-route-id="@item.TaskId"
+                        class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

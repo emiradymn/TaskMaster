@@ -1,0 +1,32 @@
+@model IEnumerable<Stajyer>
+
+    <h2>Stajyer Listesi</h2>
+    <a asp-controller="Home" asp-action="Create" class="btn btn-sm btn-primary">Stajyer Ekle</a>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m=>m.StajyerId)</th>
+                <!--isimleri almak için ve daha verimli olması için displaynamefor kullanıyoruz.-->
+                <th>@Html.DisplayNameFor(m=>m.StajyerName)</th>
+                <th>@Html.DisplayNameFor(m=>m.StajyerUsername)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var stajyer in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => stajyer.StajyerId)</td>
+                <td>@Html.DisplayFor(modelItem => stajyer.StajyerName)</td>
+                <td>@Html.DisplayFor(modelItem => stajyer.StajyerUsername)</td>
+                <td>
+                    <a asp-controller="Home" asp-action="EditStajyer" asp-route-id="@stajyer.StajyerId"
+                        class="btn btn-sm btn-primary">Düzenle</a>
+                    <a asp-controller="Home" asp-action="DeleteStajyer" asp-route-id="@stajyer.StajyerId"
+                        class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

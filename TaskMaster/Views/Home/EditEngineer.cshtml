@@ -1,0 +1,38 @@
+@model Engineer
+
+<h2>Mühendis Düzenle</h2>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Home" asp-action="EditEngineer" method="post">
+            <input type="hidden" asp-for="EngineerId">
+            <div class="mb-3">
+                <label asp-for="EngineerName" class="form-label">Ad</label>
+                <input asp-for="EngineerName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="EngineerUsername" class="form-label">Soyad</label>
+                <input asp-for="EngineerUsername" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="EngineerEmail" class="form-label">Email</label>
+                <input asp-for="EngineerEmail" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="EngineerPhone" class="form-label">Telefon</label>
+                <input asp-for="EngineerPhone" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="JobDateTime" class="form-label">Staj başlangıç tarihi</label>
+                <input asp-for="JobDateTime" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+    <div class="col-4">
+        <h4>Görevleri</h4>
+        <hr>
+        <ul>
+        </ul>
+    </div>
+</div>

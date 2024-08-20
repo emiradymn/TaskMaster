@@ -1,0 +1,20 @@
+@using TaskMaster.Data
+@model TaskMaster.Data.TaskSave
+
+<h2>Görev Paylaşım</h2>
+<hr>
+<form asp-controller="Home" asp-action="TaskSaveCreate" method="post">
+    <div class="mb-3">
+        <label asp-for="StajyerId" class="form-label">Stajyers</label>
+        <select asp-for="StajyerId" asp-items="ViewBag.Stajyers" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="TaskId" class="form-label">Görev</label>
+        <select asp-for="TaskId" asp-items="ViewBag.Tasks" class="form-select">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>

@@ -1,0 +1,42 @@
+﻿@model Stajyer
+
+<h2>Stajyer Ekle</h2>
+<hr>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Home" asp-action="EditStajyer" method="post">
+            <input type="hidden" asp-for="StajyerId">
+            <div class="mb-3">
+                <label asp-for="StajyerName" class="form-label">Ad</label>
+                <input asp-for="StajyerName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="StajyerUsername" class="form-label">Soyad</label>
+                <input asp-for="StajyerUsername" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label">Telefon</label>
+                <input asp-for="Phone" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="StajDate" class="form-label">Staj başlangıç tarihi</label>
+                <input asp-for="StajDate" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+    <div class="col-4">
+        <h4>Görevleri</h4>
+        <hr>
+        <ul>
+            @foreach(var item in @Model.TaskSaves)
+            {
+            <li>@item.Task.Title</li>
+            }
+        </ul>
+    </div>
+</div>

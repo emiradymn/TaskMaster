@@ -1,0 +1,28 @@
+@model IEnumerable<TaskSave>
+
+    <h2>Stajyer Listesi</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m => m.TaskId)</th>
+                <th>@Html.DisplayNameFor(m => m.Stajyer.StajyerName)</th>
+                <th>@Html.DisplayNameFor(m => m.Task.Title)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SaveId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Stajyer.StajyerName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Task.Title)</td>
+                <td><a asp-controller="Home" asp-action="" asp-route-id="@item.SaveId"
+                        class="btn btn-sm btn-primary">Düzenle</a>
+                    <a asp-controller="Home" asp-action="" asp-route-id="@item.SaveId"
+                        class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
