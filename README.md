@@ -1,4 +1,4 @@
-Description:
+Description:<br>
 A task allocation and management application developed using ASP.NET Core. This application facilitates efficient task distribution among team members, allowing managers to assign tasks, track progress, and ensure timely completion. The system is designed with scalability and flexibility in mind, supporting a variety of project sizes and team structures.<br>
 
 Features:<br>
